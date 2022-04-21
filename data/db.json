@@ -1,0 +1,89 @@
+{
+"cars":
+        [
+            {
+                "_id": "624085645eaef6f1072866d1",
+                "condition": "Used",
+                "maker": "Benz",
+                "model": "C200",
+                "bodyStyle": "Sedan",
+                "price": 3000,
+                "qty": 5,
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                "status": true,
+                "createdAt": "2022-03-27T15:40:20.711Z",
+                "updatedAt": "2022-03-27T15:40:20.711Z",
+                "__v": 0
+            },
+            {
+                "_id": "624080d878b0344c9defb905",
+                "condition": "Used",
+                "maker": "Benz",
+                "model": "W115",
+                "bodyStyle": "Sedan",
+                "price": 3000,
+                "qty": 2,
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                "status": true,
+                "createdAt": "2022-03-27T15:20:56.904Z",
+                "updatedAt": "2022-03-27T15:20:56.904Z",
+                "__v": 0
+            },
+            {
+                "_id": "624080ad78b0344c9defb903",
+                "condition": "Used",
+                "maker": "BMW",
+                "model": "X3",
+                "bodyStyle": "SUV",
+                "price": 3000,
+                "qty": 2,
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                "status": true,
+                "createdAt": "2022-03-27T15:20:13.457Z",
+                "updatedAt": "2022-03-27T15:20:13.457Z",
+                "__v": 0
+            },
+            {
+                "_id": "62400df85a9588969bed5a13",
+                "condition": "New",
+                "maker": "BMW",
+                "model": "X3",
+                "bodyStyle": "SUV",
+                "price": 3000,
+                "qty": 2,
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                "status": true,
+                "createdAt": "2022-03-27T07:10:48.979Z",
+                "updatedAt": "2022-03-27T07:10:48.979Z",
+                "__v": 0
+            },
+            {
+                "_id": "62400df85a9588969bed5a11",
+                "condition": "New",
+                "maker": "BMW",
+                "model": "X3",
+                "bodyStyle": "SUV",
+                "price": 3000,
+                "qty": 2,
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                "status": true,
+                "createdAt": "2022-03-27T07:10:48.348Z",
+                "updatedAt": "2022-03-27T07:10:48.348Z",
+                "__v": 0
+            },
+            {
+                "_id": "62400df75a9588969bed5a0f",
+                "condition": "New",
+                "maker": "BMW",
+                "model": "X3",
+                "bodyStyle": "SUV",
+                "price": 3000,
+                "qty": 2,
+                "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+                "status": true,
+                "createdAt": "2022-03-27T07:10:47.654Z",
+                "updatedAt": "2022-03-27T07:10:47.654Z",
+                "__v": 0
+            }
+        ]
+}

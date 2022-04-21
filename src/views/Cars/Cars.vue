@@ -1,0 +1,30 @@
+<template>
+  <h1>Hello All cars</h1>
+  <div v-if="!Cars" class="error">Loading... </div>
+  <div v-else>
+    <div v-for="car in Cars" :key="car.id">
+    <router-link :to="{name: 'SingleCar',params: { id: car.id}}">
+    <h2>{{car.condition}} <span>{{car.maker}} - {{car.model}}</span> </h2>
+    </router-link>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+data(){
+  return{
+    Cars: []
+  }
+},
+mounted(){
+  fetch('http://localhost:3000/cars')
+  .then(res=>res.json())
+  .then(data=>this.Cars=data)
+}
+}
+</script>
+
+<style>
+
+</style>
