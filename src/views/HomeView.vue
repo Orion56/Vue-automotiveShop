@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Cars/>
+    <Cars  />
   </div>
 </template>
 
@@ -17,3 +17,9 @@ export default {
 }
 }
 </script>
+<style scoped>
+.home{
+  display:flex;
+  justify-content:flex-start;
+}
+</style>
