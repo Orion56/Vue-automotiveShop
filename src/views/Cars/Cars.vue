@@ -18,7 +18,7 @@ data(){
   }
 },
 mounted(){
-  fetch('http://localhost:5009/cars')
+  fetch('http://localhost:3000/cars')
   .then(res=>(res.json()))
   .then(data=>(this.Cars=data))
   .catch(err=>console.log(err.message))
