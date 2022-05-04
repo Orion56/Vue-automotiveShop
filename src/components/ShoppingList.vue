@@ -4,19 +4,31 @@
     <form @submit.prevent="" @scroll="toggleForm">
         <h5>Start adding new items</h5>
         <input @keyup.enter="saveNew" type="text" name="" id="" placeholder="Type to add a new item" v-model.trim="newItem">
-        <label for="itemPriority">
+        <label for="itemPriority" class="grab">
         <input v-model="priority" type="checkbox" id="itemPriority">
         High Priority!
         </label>
         <div class="controls">
-        <button @click="saveNew" type="button" :disabled="newItem.length <3 ">Save Item</button>
+        <button @click="saveNew" type="button" :disabled="newItem.length <3 ">
+            Save Item
+            </button>
+        <button @click="toggleSortByP" type="button" :disabled="priorityFirst.length==0"
+        :class="{pSorted:sortByP}">
+            Sort by Priority
+            </button>
         </div>
     </form>
     <p v-if="items.length===0">Your Shopping list is Empty..</p>
-    <ul v-for="item in items" :key="item.id">
+    <ul v-show="!sortByP" v-for="item in items" :key="item.id">
         <li :class="{imp:item.priority,done:item.done}" 
         @click="toggleDone(item)">
-        {{item.id}}- {{item.value}}
+        {{items.indexOf(item)+1}}- {{item.value}}
+        </li>
+    </ul>
+    <ul v-show="sortByP" v-for="item in priorityFirst" :key="item.id">
+        <li :class="{imp:item.priority,done:item.done}" 
+        @click="toggleDone(item)">
+        {{priorityFirst.indexOf(item)+1}}- {{item.value}}
         </li>
     </ul>
 </section>
@@ -30,7 +42,8 @@ data(){
         items:[],
         newItem: "",
         priority: false,
-        done: false
+        done: false,
+        sortByP: false
     }
 },
 methods: {
@@ -45,7 +58,23 @@ methods: {
     },
     toggleDone(item){
         item.done=!item.done
+    },
+    toggleSortByP(){
+        this.sortByP=!this.sortByP
     }
+},
+computed:{
+    priorityFirst(){
+        let imp = this.items.filter(item => item.priority==true && item.done==false)
+        let norm = this.items.filter(item => item.priority==false && item.done==false)
+        let done = this.items.filter(item => item.done==true)
+        //let pF=imp.push(...norm) 
+        return imp.concat(norm,done)
+    },
+    // itemDynamicID(arr,item){
+    //     return arr.indexOf(item)
+    // }
+
 }
 }
 </script>
@@ -58,11 +87,22 @@ methods: {
     border: solid red 1px;
 }
 #shopping ul{
-    text-align: left;
     list-style: none;
+    text-align: left;
+    /* counter-reset: list; */
 }
+#shopping li{
+/*     counter-increment:list;
+ */    position:relative;
+}
+/* #shopping li:before{
+    content: counter(list);margin-right: 5px;
+    position: absolute;
+    right: 100%;
+} */
 #shopping li:hover{
-    
+    background-color: rgba(172, 255, 47, 0.259);
+    cursor: grab;
 }
 #shopping input,button{
     padding: 5px;
@@ -70,17 +110,24 @@ methods: {
     border-radius: 5px;
 }
 #shopping button{
-    justify-self: right;
+    margin: 5px;
+}
+#shopping button:disabled{
+    cursor: not-allowed;
 }
 #shopping input[type=text]{
     width: 70%;
     margin-right: 5px;
+   /*  text-align: center; */
 }
-#shopping input[type=text]:focus{
+#shopping input[type=text]:focus,#shopping .pSorted, #shopping div.controls button:enabled:hover{
         box-shadow: inset 0px 0px 15px greenyellow;
     }
 #shopping .controls{
     margin: 5px;
+}
+#shopping .grab{
+    cursor: grab;
 }
 
 /* toggled classes */
@@ -95,4 +142,5 @@ methods: {
     text-decoration: line-through;
     color: gray;
 }
+
 </style>
