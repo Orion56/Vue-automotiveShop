@@ -17,11 +17,19 @@ data(){
     Cars: []
   }
 },
-mounted(){
-  fetch('http://localhost:3000/cars')
+/* mounted(){
+  fetch('http://localhost:5009/cars')
   .then(res=>(res.json()))
   .then(data=>(this.Cars=data))
   .catch(err=>console.log(err.message))
+}, */
+async mounted(){
+  try {
+    const res = await fetch('http://localhost:5009/cars')
+    this.Cars = await res.json()
+  } catch (error) {
+    console.log(error.message)
+  }
 }
 }
 </script>
