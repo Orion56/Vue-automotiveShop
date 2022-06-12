@@ -1,13 +1,14 @@
 <template>
 <section id="shopping">
     <h1>{{compName}}</h1>
-    <form @submit.prevent="" @scroll="toggleForm">
+    <form v-show="showAddForm" @submit.prevent="">
         <h5>Start adding new items</h5>
-        <input @keyup.enter="saveNew" type="text" name="" id="" placeholder="Type to add a new item" v-model.trim="newItem">
+        <input @keyup.enter="saveNew" type="text" name="" id="" placeholder="Type here to add a new item" v-model.trim="newItem">
         <label for="itemPriority" class="grab">
         <input v-model="priority" type="checkbox" id="itemPriority">
         High Priority!
         </label>
+    </form>
         <div class="controls">
         <button @click="saveNew" type="button" :disabled="newItem.length <3 ">
             Save Item
@@ -17,7 +18,6 @@
             Sort by Priority
             </button>
         </div>
-    </form>
     <p v-if="items.length===0">Your Shopping list is Empty..</p>
     <ul v-show="!sortByP" v-for="item in items" :key="item.id">
         <li :class="{imp:item.priority,done:item.done}" 
@@ -43,7 +43,8 @@ data(){
         newItem: "",
         priority: false,
         done: false,
-        sortByP: false
+        sortByP: false,
+        showAddForm: true
     }
 },
 methods: {
@@ -52,9 +53,9 @@ methods: {
         this.newItem=''
         this.priority=false
     },
-    toggleForm(){
-        const addForm = this.document.querySelector('form')
-        addForm.classList.toggle('hide')
+    toggleForm(e){
+        if(window.scrollY>100) this.showAddForm=!this.showAddForm
+        //this.showAddForm=!this.showAddForm
     },
     toggleDone(item){
         item.done=!item.done
@@ -75,6 +76,9 @@ computed:{
     //     return arr.indexOf(item)
     // }
 
+},
+created(){
+    window.addEventListener("scroll", this.toggleForm)
 }
 }
 </script>
