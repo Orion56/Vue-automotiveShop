@@ -30,7 +30,7 @@ async mounted(){
   } catch (error) {
     console.log(error.message)
   }
-}
+  }
 }
 </script>
 

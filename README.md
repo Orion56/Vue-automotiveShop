@@ -8,7 +8,12 @@ npm install
 ### Compiles and hot-reloads for development
 ```
 npm run serve
+
+//to launch json server
+json-server --watch data/db.json
 ```
+//on different port
+json-server --w data/db.json --p 5009
 
 ### Compiles and minifies for production
 ```
