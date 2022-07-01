@@ -15,7 +15,9 @@ npm run serve
 json-server --watch data/db.json
 ```
 //on different port
+```
 json-server --w data/db.json --p 5009
+```
 
 ### Compiles and minifies for production
 ```
