@@ -1,4 +1,6 @@
 # automotive-shop
+This is the frontend of an Automotive Online Shop written in Vue.js & Bootstrap.
+JSON files are used here to simulate the Db (Project's Original Mongo Db & Full APIs Collection can be found here in this repo: https://github.com/Orion56/vigilant-parakeet.git )
 
 ## Project setup
 ```
