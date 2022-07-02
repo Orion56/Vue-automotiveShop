@@ -1,14 +1,23 @@
 <template>
-<Navbar/>
-  <router-view/>
-<Footer><p>Hello</p></Footer>  
+  <div class="foFix d-flex flex-column min-vh-100">
+    <Navbar class="mb-5"/>
+    <div class="container">
+      <router-view v-slot="{ Component }">
+        <KeepAlive>
+          <component :is="Component" />
+        </KeepAlive>
+      </router-view>
+    </div>
+    <Footer class="mt-auto">
+    </Footer>
+  </div>
 </template>
 
 <script>
 import Navbar from "./components/Navbar.vue"
 import Footer from "./components/Footer.vue"
-export default{
-  components:{Navbar,Footer}
+export default {
+  components: { Navbar, Footer }
 }
 </script>
 
@@ -18,6 +27,7 @@ export default{
   margin: 0px;
   padding: 0px;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
